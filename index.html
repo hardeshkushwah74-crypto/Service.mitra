@@ -1,190 +1,204 @@
-⁶
 <!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SERVICE MITRA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SERVICE MITRA - Home Services</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f6f6f6;color:#222}
-header{background:#171717;color:white;padding:20px}
-.logo{font-size:27px;font-weight:bold}
+body{margin:0;font-family:Arial,sans-serif;background:#f7f7f7;color:#222}
+header{background:#171717;color:white;padding:18px 16px}
+.logo{font-size:25px;font-weight:bold}
 .logo span{color:#ff3939}
-.hero{background:#171717;color:white;padding:35px 20px}
-.hero h1{font-size:30px}
-.hero h1 span{color:#ff3939}
-.hero p{line-height:1.7;color:#ddd}
-.search{width:100%;padding:15px;border:0;border-radius:9px;font-size:16px}
+header p{margin:6px 0 0;color:#ddd;font-size:13px}
+.hero{background:#171717;color:white;padding:30px 18px 35px}
+.hero h1{font-size:30px;margin:0 0 12px}
+.hero h1 span{color:#ff4141}
+.hero p{color:#ddd;line-height:1.6}
+.search{width:100%;padding:15px;border:0;border-radius:9px;font-size:15px;margin-top:12px}
 section{padding:22px 15px}
-.location{background:white;padding:15px;border-radius:10px;margin-bottom:20px}
+h2{font-size:21px;margin:0 0 16px}
+.location{background:white;padding:14px;border-radius:10px;margin-bottom:15px}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.service{background:white;border-radius:13px;padding:18px 8px;text-align:center;box-shadow:0 2px 8px #ddd}
+.service{background:white;border-radius:12px;padding:17px 10px;text-align:center;box-shadow:0 2px 8px #0000000d}
 .emoji{font-size:35px}
-.service h3{font-size:16px}
-button{cursor:pointer}
-.service button,.submit{background:#ed2929;color:white;border:0;border-radius:8px;padding:12px;font-weight:bold}
-.banner{background:#ffe5e5;padding:20px;border-radius:12px;line-height:1.7}
-footer{background:#171717;color:white;text-align:center;padding:25px}
-.modal{display:none;position:fixed;inset:0;background:#000b;z-index:5;overflow:auto;padding:20px}
-.formbox{background:white;border-radius:15px;padding:20px;max-width:450px;margin:15px auto}
-.formbox h2{margin-top:0}
-.formbox label{display:block;margin:13px 0 6px;font-weight:bold}
-.formbox input,.formbox select,.formbox textarea{width:100%;padding:13px;border:1px solid #ccc;border-radius:8px;font-size:15px}
-.formbox textarea{min-height:75px}
-.submit{width:100%;font-size:16px;margin-top:18px}
-.close{float:right;background:#eee;border:0;border-radius:6px;padding:8px 12px}
-.note{font-size:12px;color:#666;line-height:1.5}
+.service h3{font-size:15px;margin:9px 0}
+.service button,.book{background:#ed2929;color:white;border:0;border-radius:7px;padding:10px 14px;font-weight:bold;cursor:pointer}
+.banner{background:#ffe5e5;padding:20px;border-radius:12px;line-height:1.6}
+.banner strong{color:#d82020}
+footer{background:#171717;color:white;text-align:center;padding:25px 12px;line-height:1.8}
+small{color:#aaa}
 </style>
 </head>
 <body>
 
 <header>
-<div class="logo">SERVICE <span>MITRA</span></div>
-<p>आपकी हर सर्विस का भरोसेमंद साथी</p>
+ <div class="logo">SERVICE <span>MITRA</span></div>
+ <p>Aapki har service ka bharosemand saathi</p>
 </header>
 
 <div class="hero">
-<h1>घर की हर समस्या का <span>समाधान!</span></h1>
-<p>अब घर बैठे बुक करें भरोसेमंद सर्विस। अलीगढ़, हाथरस और सासनी में हमारी शुरुआत।</p>
-<input class="search" id="search" placeholder="कौन सी सर्विस चाहिए? 🔍" oninput="filterServices()">
+ <h1>घर की हर समस्या का <span>समाधान!</span></h1>
+ <p>अब घर बैठे बुक करें भरोसेमंद सर्विस। आसान बुकिंग और बेहतर सेवा।</p>
+ <input class="search" id="search" placeholder="कौन सी सर्विस चाहिए? 🔍" oninput="filterServices()">
 </div>
 
 <section>
-<div class="location">📍 <b>हमारी शुरुआत:</b> अलीगढ़ • हाथरस • सासनी</div>
-<h2>हमारी सर्विसेज 🛠️</h2>
+ <div class="location">
+  📍 <b>हमारी शुरुआत:</b> अलीगढ़, हाथरस और सासनी
+ </div>
 
-<div class="grid" id="services">
-<div class="service"><div class="emoji">⚡</div><h3>इलेक्ट्रिशियन</h3><button onclick="book('इलेक्ट्रिशियन')">बुक करें</button></div>
-<div class="service"><div class="emoji">🔧</div><h3>प्लंबर</h3><button onclick="book('प्लंबर')">बुक करें</button></div>
-<div class="service"><div class="emoji">❄️</div><h3>AC रिपेयर</h3><button onclick="book('AC रिपेयर')">बुक करें</button></div>
-<div class="service"><div class="emoji">🚰</div><h3>RO सर्विस</h3><button onclick="book('RO सर्विस')">बुक करें</button></div>
-<div class="service"><div class="emoji">🧹</div><h3>घर की सफाई</h3><button onclick="book('घर की सफाई')">बुक करें</button></div>
-<div class="service"><div class="emoji">🎨</div><h3>पेंटिंग</h3><button onclick="book('पेंटिंग')">बुक करें</button></div>
-<div class="service"><div class="emoji">🪚</div><h3>कारपेंटर</h3><button onclick="book('कारपेंटर')">बुक करें</button></div>
-<div class="service"><div class="emoji">🧊</div><h3>फ्रिज रिपेयर</h3><button onclick="book('फ्रिज रिपेयर')">बुक करें</button></div>
-<div class="service"><div class="emoji">🧺</div><h3>वॉशिंग मशीन</h3><button onclick="book('वॉशिंग मशीन')">बुक करें</button></div>
-<div class="service"><div class="emoji">💇</div><h3>ब्यूटी और सैलून</h3><button onclick="book('ब्यूटी और सैलून')">बुक करें</button></div>
-<div class="service"><div class="emoji">✨</div><h3>डीप क्लीनिंग</h3><button onclick="book('डीप क्लीनिंग')">बुक करें</button></div>
-<div class="service"><div class="emoji">🐜</div><h3>पेस्ट कंट्रोल</h3><button onclick="book('पेस्ट कंट्रोल')">बुक करें</button></div>
-</div>
+ <h2>हमारी सर्विसेज 🛠️</h2>
+ <div class="grid" id="services">
+
+ <div class="service"><div class="emoji">⚡</div><h3>इलेक्ट्रिशियन</h3><button onclick="book('इलेक्ट्रिशियन')">बुक करें</button></div>
+ <div class="service"><div class="emoji">🔧</div><h3>प्लंबर</h3><button onclick="book('प्लंबर')">बुक करें</button></div>
+ <div class="service"><div class="emoji">❄️</div><h3>AC रिपेयर</h3><button onclick="book('AC रिपेयर')">बुक करें</button></div>
+ <div class="service"><div class="emoji">🚰</div><h3>RO सर्विस</h3><button onclick="book('RO सर्विस')">बुक करें</button></div>
+ <div class="service"><div class="emoji">🧹</div><h3>घर की सफाई</h3><button onclick="book('घर की सफाई')">बुक करें</button></div>
+ <div class="service"><div class="emoji">🎨</div><h3>पेंटिंग</h3><button onclick="book('पेंटिंग')">बुक करें</button></div>
+ <div class="service"><div class="emoji">🪚</div><h3>कारपेंटर</h3><button onclick="book('कारपेंटर')">बुक करें</button></div>
+ <div class="service"><div class="emoji">🧊</div><h3>फ्रिज रिपेयर</h3><button onclick="book('फ्रिज रिपेयर')">बुक करें</button></div>
+ <div class="service"><div class="emoji">🧺</div><h3>वॉशिंग मशीन</h3><button onclick="book('वॉशिंग मशीन')">बुक करें</button></div>
+ <div class="service"><div class="emoji">💇</div><h3>ब्यूटी और सैलून</h3><button onclick="book('ब्यूटी और सैलून')">बुक करें</button></div>
+ <div class="service"><div class="emoji">✨</div><h3>डीप क्लीनिंग</h3><button onclick="book('डीप क्लीनिंग')">बुक करें</button></div>
+ <div class="service"><div class="emoji">🐜</div><h3>पेस्ट कंट्रोल</h3><button onclick="book('पेस्ट कंट्रोल')">बुक करें</button></div>
+
+ </div>
 </section>
 
 <section>
-<div class="banner">
-<h2>आपका भरोसा, हमारी जिम्मेदारी ❤️</h2>
-<b>SERVICE MITRA</b><br>
-अलीगढ़ • हाथरस • सासनी
-</div>
+ <div class="banner">
+  <h2>आपका भरोसा, हमारी जिम्मेदारी ❤️</h2>
+  <strong>SERVICE MITRA</strong>
+  <br>अलीगढ़ • हाथरस • सासनी
+  <br>जल्द ही आपके पूरे भारत में!
+ </div>
 </section>
 
 <footer>
-<b>SERVICE MITRA</b><br>
-आपकी हर घरेलू सर्विस का साथी।
+ <b>SERVICE MITRA</b>
+ <br>आपकी हर घरेलू सर्विस का साथी।
+ <br><small>© 2026 Service Mitra. All Rights Reserved.</small>
 </footer>
 
-<div class="modal" id="booking">
-<div class="formbox">
-<button class="close" onclick="closeForm()">✕ बंद करें</button>
-<h2>📋 सर्विस बुकिंग</h2>
-<p id="selectedService">अपनी जानकारी भरें</p>
+<script>
+function book(service){
+ alert(service + " चुनी गई है। ऑनलाइन बुकिंग सुविधा जल्द शुरू होगी!");
+}
+function filterServices(){
+ let value=document.getElementById('search').value.toLowerCase();
+ document.querySelectorAll('.service').forEach(item=>{
+ item.style.display=item.innerText.toLowerCase().includes(value)?"block":"none";
+ });
+}
+</script>
 
-<form onsubmit="sendBooking(event)">
-<label>आपका नाम *</label>
-<input id="name" required placeholder="पूरा नाम">
+<style>
+.partner-section{
+background:#171717;color:white;padding:25px 15px;
+margin:20px 0;text-align:center;border-radius:12px;
+}
+.partner-section button,.partner-box button{
+background:#ed2929;color:white;border:0;
+padding:13px;border-radius:8px;font-weight:bold;
+}
+.partner-form{
+display:none;position:fixed;inset:0;background:#000b;
+z-index:99;overflow:auto;padding:15px;
+}
+.partner-box{
+background:white;color:#222;padding:20px;
+border-radius:14px;max-width:450px;margin:20px auto;
+}
+.partner-box label{display:block;font-weight:bold;margin-top:12px}
+.partner-box input,.partner-box select,.partner-box textarea{
+width:100%;padding:12px;border:1px solid #ccc;
+border-radius:7px;margin-top:6px;
+}
+.partner-box button{width:100%;margin-top:18px}
+</style>
+
+<section class="partner-section">
+<h2>🤝 हमारे साथ पार्टनर बनें</h2>
+<p>कारीगर बनें और SERVICE MITRA के साथ काम पाएँ।</p>
+<button onclick="openPartner()">कारीगर रजिस्ट्रेशन करें</button>
+</section>
+
+<div class="partner-form" id="partnerForm">
+<div class="partner-box">
+<button type="button" onclick="closePartner()">✕ बंद करें</button>
+<h2>कारीगर रजिस्ट्रेशन</h2>
+
+<form onsubmit="sendPartner(event)">
+<label>पूरा नाम *</label>
+<input id="pname" required>
 
 <label>मोबाइल नंबर *</label>
-<input id="phone" type="tel" pattern="[6-9][0-9]{9}" maxlength="10" required placeholder="10 अंकों का नंबर">
+<input id="pphone" type="tel" pattern="[6-9][0-9]{9}" maxlength="10" required>
 
 <label>शहर *</label>
-<select id="city" required>
+<select id="pcity" required>
 <option value="">शहर चुनें</option>
 <option>अलीगढ़</option>
 <option>हाथरस</option>
 <option>सासनी</option>
 </select>
 
-<label>पूरा पता *</label>
-<textarea id="address" required placeholder="मकान नंबर, मोहल्ला, क्षेत्र"></textarea>
-
-<label>बुकिंग की तारीख *</label>
-<input id="date" type="date" required>
-
-<label>समय *</label>
-<select id="time" required>
-<option value="">समय चुनें</option>
-<option>सुबह 9 से 12 बजे</option>
-<option>दोपहर 12 से 3 बजे</option>
-<option>शाम 3 से 6 बजे</option>
-<option>शाम 6 से 8 बजे</option>
+<label>काम *</label>
+<select id="pwork" required>
+<option value="">काम चुनें</option>
+<option>इलेक्ट्रिशियन</option>
+<option>प्लंबर</option>
+<option>AC रिपेयर</option>
+<option>RO सर्विस</option>
+<option>सफाई</option>
+<option>पेंटिंग</option>
+<option>कारपेंटर</option>
+<option>फ्रिज रिपेयर</option>
+<option>वॉशिंग मशीन</option>
+<option>ब्यूटी और सैलून</option>
+<option>अन्य</option>
 </select>
 
-<button class="submit" type="submit">WhatsApp पर बुकिंग भेजें</button>
-<p class="note">आपकी जानकारी WhatsApp पर भेजने के लिए WhatsApp खुलेगा। बुकिंग तभी भेजी जाएगी जब आप वहाँ Send दबाएँगे। सर्विस की उपलब्धता की पुष्टि हमारी टीम करेगी।</p>
+<label>अनुभव *</label>
+<select id="pexp" required>
+<option value="">अनुभव चुनें</option>
+<option>नया</option>
+<option>1-2 साल</option>
+<option>3-5 साल</option>
+<option>5 साल से ज्यादा</option>
+</select>
+
+<label>पूरा पता *</label>
+<textarea id="paddress" required></textarea>
+
+<button type="submit">WhatsApp पर रजिस्ट्रेशन भेजें</button>
 </form>
 </div>
 </div>
 
 <script>
-let selected = "";
-
-function book(service){
-selected=service;
-document.getElementById("selectedService").innerText="चुनी गई सर्विस: "+service;
-document.getElementById("booking").style.display="block";
+function openPartner(){
+document.getElementById("partnerForm").style.display="block";
 }
-
-function closeForm(){
-document.getElementById("booking").style.display="none";
+function closePartner(){
+document.getElementById("partnerForm").style.display="none";
 }
-
-function sendBooking(e){
+function sendPartner(e){
 e.preventDefault();
 
-let name=document.getElementById("name").value.trim();
-let phone=document.getElementById("phone").value.trim();
-let city=document.getElementById("city").value;
-let address=document.getElementById("address").value.trim();
-let date=document.getElementById("date").value;
-let time=document.getElementById("time").value;
+let msg="SERVICE MITRA PARTNER REGISTRATION\n"+
+"नाम: "+document.getElementById("pname").value+"\n"+
+"मोबाइल: "+document.getElementById("pphone").value+"\n"+
+"शहर: "+document.getElementById("pcity").value+"\n"+
+"काम: "+document.getElementById("pwork").value+"\n"+
+"अनुभव: "+document.getElementById("pexp").value+"\n"+
+"पता: "+document.getElementById("paddress").value;
 
-if(!name || !/^[6-9][0-9]{9}$/.test(phone)){
-alert("कृपया सही नाम और 10 अंकों का मोबाइल नंबर भरें।");
-return;
+window.open("https://wa.me/919758595891?text="+encodeURIComponent(msg),"_blank");
 }
-
-let message=
-"नई SERVICE MITRA बुकिंग%0A"+
-"सर्विस: "+selected+"%0A"+
-"नाम: "+name+"%0A"+
-"मोबाइल: "+phone+"%0A"+
-"शहर: "+city+"%0A"+
-"पता: "+address+"%0A"+
-"तारीख: "+date+"%0A"+
-"समय: "+time;
-
-let url="https://wa.me/919758595891?text="+encodeURIComponent(
-"नई SERVICE MITRA बुकिंग\n"+
-"सर्विस: "+selected+"\n"+
-"नाम: "+name+"\n"+
-"मोबाइल: "+phone+"\n"+
-"शहर: "+city+"\n"+
-"पता: "+address+"\n"+
-"तारीख: "+date+"\n"+
-"समय: "+time
-);
-
-window.open(url,"_blank");
-}
-
-function filterServices(){
-let value=document.getElementById("search").value.toLowerCase();
-document.querySelectorAll(".service").forEach(item=>{
-item.style.display=item.innerText.toLowerCase().includes(value)?"block":"none";
-});
-}
-
-document.getElementById("date").min=new Date().toLocaleDateString("en-CA");
 </script>
+
 </body>
 </html>
